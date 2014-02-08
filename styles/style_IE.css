@@ -1,0 +1,521 @@
+/* resets */
+
+html, body, div, span, object, iframe,
+h1, h2, h3, h4, h5, h6, p, blockquote, pre,
+abbr, address, cite, code,
+del, dfn, em, img, ins, kbd, q, samp,
+small, strong, sub, sup, var,
+b, i,
+dl, dt, dd, ol, ul, li,
+fieldset, form, label, legend,
+table, caption, tbody, tfoot, thead, tr, th, td,
+article, aside, canvas, details, figcaption, figure,
+footer, header, hgroup, menu, nav, section, summary,
+time, mark, audio, video {
+	margin:0;
+	padding:0;
+	border:0;
+	outline:0;
+	font-size:100%;
+	vertical-align:baseline;
+	background:transparent;
+}
+
+body {
+	line-height:1;
+}
+
+article,aside,details,figcaption,figure,
+footer,header,hgroup,menu,nav,section {
+	display:block;
+}
+
+ul {
+	list-style:none;
+	padding-left:0;
+}
+
+a {
+	margin:0;
+	padding:0;
+	font-size:100%;
+	color: #f7f7f7;
+	vertical-align:baseline;
+	background:transparent;
+	text-decoration: none;
+}
+
+	a:hover {
+		text-decoration: underline;
+	}
+
+table {
+	border-collapse:collapse;
+	border-spacing:0;
+}
+
+hr {
+	display:block;
+	height:1px;
+	border:0;
+	border-top:1px solid #cccccc;
+	margin:1em 0;
+	padding:0;
+}
+
+input, select {
+	vertical-align:middle;
+}
+
+/* -------------------------------------------- */
+img{
+	max-width: 100%;
+	border: 0;
+}
+
+/* img containers {
+	set width and
+	overflow: hidden;
+} */
+
+
+/* #site-wrap,
+#header#header {
+	zoom: 1;
+}
+
+#site-wrap:after,
+#header#header:after {
+	content: "";	
+	clear: both;
+	display:block;
+} */
+
+/* main css */
+
+/* first set default font/size family..... */
+
+
+
+
+
+/* font is put in html! rem */
+
+/* use rem, and root 10px(or 62.5% equivelent, even better); */
+
+/* ul text align to center li if nec */
+
+/* padding nav li a to have better clickability */
+
+
+
+/* main css */
+
+html {
+	font:10px 'Georgia', 'Verdana', sans-serif;
+	color: #fff;
+	background: url(../images/body-background.png) repeat center 0 #000;
+}
+
+
+
+
+
+	/* site header */
+
+/* search box */
+	
+#header {
+	width: 100%;
+	height: 167px;
+	background: url(../images/header-background.png) repeat-x #000;
+	box-shadow: inset 0 0 21px #000;
+	position: relative;
+}
+
+	#header #container {
+		position: absolute;
+		right: 126px;
+		top: 15px;
+	}
+	
+		#header #container ul li {
+			display: inline-block;
+			border-right: 1px solid #c6c6c6;
+			*display: inline;
+			zoom: 1;
+		}
+		
+		#header #container ul li:last-child {
+			border-right: none;
+		}
+			
+			#header #container ul li a {
+				color: #e6e6e6;
+				font-size: 1.2em;
+				padding: 15px;
+			}
+			
+			#header #container ul li:last-child a {
+				padding-right: 0;
+			}
+			
+			#header #container ul li:first-child a {
+				padding-left: 0;
+			}
+			
+		#header #container  input {
+			width: 160px;
+			height: 30px;
+			border: none;
+			background: url(../images/search-icon.png) right 11px top 6px no-repeat;
+			background-color:#e6e6e6;
+			border-radius: 2px;
+			text-indent: 2em;
+			margin-top: 19px;
+			
+		}
+		
+	
+/* logo and name */
+
+	#header #logoSite {
+		position: absolute;
+		left: 126px;
+		top: 15px;
+		}
+		
+		#header #logoSite div {
+			display: inline-block;
+			margin-left: 10px;
+			margin-top: 20px;
+			vertical-align: top;
+			font-size: 2.8em;
+			*display: inline;
+			zoom: 1;
+		}
+		
+			#header #logoSite div h1 a {
+				color: #b7b8b7;
+				text-shadow: 0 0 3px #b7b8b7;
+			}
+
+			#header #logoSite div h1 a:hover {
+				text-decoration: none;
+				color: #91b1bf;
+			}
+		
+		#header #logoSite p {
+			width: 225px;
+			color: #b7b8b7;
+			font-size: 1.1em;
+			text-align: center;
+			line-height: 140%;
+		}
+
+/* navigation */
+
+
+	/* main sections */
+
+#siteWrapper {
+	width: 80%;
+	height: 960px;
+	border: 1px solid #e6e7e8;
+	position: relative;
+	margin: -8px auto 0 auto;
+	border-radius: 3px;
+	background-color:#eeeff0;
+	box-shadow: 0 0 4px 4px rgba(0, 0, 0, 0.75);
+	behavior: url(scripts/PIE_uncompressed.htc);
+}
+
+/* main navigation */
+
+	#naviMain {
+		height: 44px;
+		margin-top: -36px;
+		border-top-left-radius:3px;
+		border-top-right-radius:3px;
+		background-image:url(../images/nav-background.png);
+	}
+		
+			#naviMain ul li {
+				display: inline-block;
+				margin-top: 12px;
+				margin-bottom: 10px;
+				font-size: 1.5em;
+				border-right: 1px solid #c2c0c0;
+				border-left: 1px solid #282828;
+				padding-top: 2px;
+				padding-bottom: 5px;
+				*display: inline;
+				zoom: 1;
+			}
+			
+			#naviMain ul li:first-child {
+				border-left: none;
+			}
+				
+			#naviMain ul li:last-child {
+				border-right: none;
+			}
+			
+				#naviMain ul li a {
+					padding: 15px;
+					color: #f7f7f7;
+				}
+				
+				#naviMain ul li a:hover {
+					text-decoration: none;
+					color: #91b1bf;
+				}	
+				
+/* front section */
+
+	div#container2 {
+		height: 352px;
+		margin: 25px auto 0 auto;
+		width: 95%;
+		background: url(../images/main-image.jpg) no-repeat #a1becd;
+		position: relative;
+	}
+		div#container2 section {
+			height: 351px;
+		}
+		
+			div#container2 section h2 {
+				position: absolute;
+				font-size: 3em;
+				color: #eeeff0;
+				text-shadow: 1px 1px 5px rgba(0, 0, 0, 0.75);
+				left: 28px;
+				top: 20px;
+			}
+			
+			div#container2 section p {
+				width: 500px;
+				position: absolute;
+				font-size: 1.2em;
+				line-height: 130%;
+				color: #000;
+				bottom: 32px;
+				left: 31px;
+			}
+			
+			div#container2 section>div {
+				width: 225px;
+				height: 78px;
+				border: 10px solid rgba(0, 0, 0, 0.3);
+				border-radius: 10px;
+				position: absolute;
+				right: 100px;
+				top: 135px;
+			}
+			
+			div#container2 section #learnMore {
+				width: 225px;
+				height: 78px;
+				border-radius: 3px;
+				background: url(../images/learn-background.png) repeat-x #c3d7e4;
+				box-shadow: inset 0 0 10px #000;
+			}
+			
+				div#container2 section #learnMore a {
+					font-size: 3em;
+					padding-left: 35px;
+					padding-right: 30px;
+					line-height: 230%;
+					overflow: hidden;
+				}
+				
+				div#container2 section #learnMore a:hover {
+					text-decoration: none;
+					color: #91b1bf;
+				}
+	
+/* sign up section	 */
+
+	.newsletter {
+		height: 53px;
+		width: 95%;
+		background-color:#a7acaf;
+		margin: 20px auto 0 auto;
+		position: relative;
+	}
+	
+		.newsletter form {
+			position: absolute;
+			right: 14px;
+			top: 12px;
+		}
+		
+			.newsletter form input[type='email']  {
+				height: 24px;
+				background-color:#e6e6e6;
+				text-indent: 8px;
+				border: none;
+				border-radius: 1px;
+			}
+			
+			.newsletter form input[type='submit'] {
+				width: 55px;
+				height: 31px;
+			} 
+		
+		.newsletter h4 {
+			font-size: 3em;
+			color: #eee;
+			line-height: 150%;
+			margin-left: 10px;
+		}
+		
+/* article section	*/
+
+	#articleHolder {
+		width: 95%;
+		margin: 20px auto 0 auto;
+	}
+
+		#articleHolder .article{
+			width:30%;
+			display: inline-block;
+			margin-left: 33px;
+			
+			*display: inline;
+			zoom: 1;
+		}
+		
+		#articleHolder .article:first-child{
+			margin-left: 0;
+		}
+		
+			#articleHolder .article a{
+				color: #098fda;
+			}
+		
+			#articleHolder .article h5 {
+				display: inline-block;
+				font-size: 1.6em;
+				color: #000;
+				line-height: 180%;
+				vertical-align: top;
+				*display: inline;
+				zoom: 1;
+			}
+			
+			#articleHolder .article p {
+				color: #3c3d3d;
+				font-size: 1.2em;
+				line-height: 160%;
+			}
+
+/* subbox section */
+
+	#subBoxHolder {
+		width: 95%;
+		margin: 20px auto 0 auto;
+	}
+		
+		#subBoxHolder .subBox{
+			width:30%;
+			height: 205px;
+			background: url(../images/sbox-background.png) repeat-x #000;
+			position: relative;
+			border: 1px solid #a7a8a8;
+			border-radius: 4px;
+			box-shadow: 2px 2px 2px #898989, #898989 0px 0px 5px inset;
+			display: inline-block;
+			margin-left: 33px;
+			*display: inline;
+			zoom: 1;
+		}
+		
+		#subBoxHolder .subBox:first-child {
+			margin-left: 0;
+		}
+		
+			#subBoxHolder .subBox .bulletNumber {
+				font-size: 7.5em;
+				text-shadow: 1px 1px 5px rgba(0, 0, 0, 0.75);
+				position: absolute;
+				top: 0;
+				left: 10px;
+			}
+			
+			#subBoxHolder .subBox h6 {
+				position: absolute;
+				top: 18px;
+				left: 60px;
+				font-size: 1.7em;
+				color: #0f6496;
+				line-height: 140%;
+				vertical-align: top;
+			}
+			
+			#subBoxHolder .subBox .subBoxPar{
+				position: absolute;
+				top: 80px;
+				left: 10px;
+				color: #3c3d3d;
+				font-size: 1.2em;
+				line-height: 160%;
+			}
+			
+			#subBoxHolder .subBox .readMore {
+				width: 73px;
+				height: 30px;
+				font-size: 0.9em;
+				position: absolute;
+				bottom: 10px;
+				right: 10px;
+			}
+		
+		
+	/* footer */
+	
+#mainFooter {
+	width: 100%;
+	height: 240px;
+	background-color:#212222;
+}
+	.headerList {
+		width: 245px;
+		height: 182px;
+		font-size: 1.1em;
+		padding-top: 20px;
+		display: inline-block;
+		margin-left: 10px;
+		
+		*display: inline;
+		zoom: 1;
+	}
+	
+	.headerList:first-child {
+		margin-left: 123px;
+	}	
+	
+		.headerList h5 {
+			margin-top: 10px;
+			margin-bottom: 10px;
+			color: #f7f7f7;
+		}
+		.headerList ul li{
+			padding: 8px;
+			padding-left: 18px;
+			background-image: url(../images/arrow-li.png);
+			background-repeat: no-repeat;
+			background-position: 0 .5em;
+		}
+		
+			.headerList ul li a{
+				color: #f7f7f7;
+			}		
+
+	.copyright {
+		width: 100%;
+		height: 37px;
+		background-color:#000;
+		text-align: center;
+		padding-top: 20px;
+	}
