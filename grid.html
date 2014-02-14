@@ -1,0 +1,463 @@
+<!DOCTYPE HTML>
+<html lang="en-US">
+<head>
+	<meta charset="UTF-8">
+	<title>JSCabin-GridView</title>
+		
+		<!--[if lt IE 9]>
+		<script src="scripts/modernizr.js">
+		</script>
+		<link rel="stylesheet" href="styles/style_IE.css" />
+		<![endif]-->
+		
+		<![if !IE]>
+		<link rel="stylesheet" href="styles/style.css" />
+		<![endif]>
+		
+		<style type="text/css">
+		#nestedHolder>div {
+			display: none;
+		}
+
+		div div.rowHolder{
+			display:block;
+			margin: 0 auto;
+			
+		}
+
+		div.rowHolder div {
+			display:inline-block;
+			margin: 0 auto;
+			width: 100px;
+			padding: 2px;
+			padding-left: 5px;
+			border: 1px solid #383838;
+			border-right: none;
+			border-bottom: none;
+			background-color:#E0FFFF;
+		}
+
+		div.rowHolder:first-of-type div {
+			background-color:#D3D3D3;
+		}
+		
+		#containerGrid {
+			margin: 20px;
+			padding: 20px;
+			color: black;
+			font-size: 1.5rem;
+		}
+		
+		#containerGrid p {
+			color: black;
+			font-size: 1.7rem;
+		}
+		
+		#containerGrid p a {
+			color: blue;
+			
+		}
+		
+		
+	</style>
+
+	<script type="text/javascript" src="scripts/scriptGrid.js"></script>
+	<script type="text/javascript" src="scripts/local-storage-extensions.js"></script>
+	
+</head>
+<body>
+	<header id = "header">
+		
+		<div id = "logoSite">
+		
+			<img src="images/js-cabin-logo.png" alt="no image" width = "100" height = "68" />
+			<div><h1><a href="#">JScabin</a></h1></div>
+			<p>
+				<strong>My exercises in programming with JavaScript, HTML and CSS</strong>
+			</p>
+			
+		</div>
+		
+		<div id="container">
+			
+			<ul>
+				<li>
+					<a href="#" title = "sign up">Sign-up</a>
+				</li>
+				<li>
+					<a href="#" title = "log in">Log-in</a>
+				</li>
+				<li>
+					<a href="#" title = "contact us">Contact</a>
+				</li>
+			</ul>
+			
+			<input type="search" title = "search..." placeholder = "search.."/>
+			
+		</div>
+		
+	</header>
+	
+	<div id = "siteWrapper">
+		
+		<nav id="naviMain">
+			<ul>
+				<li>
+					<a href="#" title="home page">Home</a>
+				</li><li>
+					<a href="#" title="about us" style="color:#87CEFA">Grid View</a>
+				</li><li>
+					<a href="#" title="features">Features</a>
+				</li><li>
+					<a href="#" title="services">Services</a>
+				</li><li>
+					<a href="#" title="newsletter">Newsletter</a>
+				</li><li>
+					<a href="#" title="demo">Demo</a>
+				</li><li>
+					<a href="#" title="extra">Extra</a>
+				</li><li>
+					<a href="#" title="blog">blog</a>
+				</li><li>
+					<a href="#" title="contact">Contact</a>
+				</li>
+			</ul>
+		</nav>
+	
+	<!-- ----------------------------------- -->
+	
+	<div id="containerGrid">
+		<p>Notes: exam JavaScript pt.2, GridView/<a href="http://academy.telerik.com/student-courses/web-design-and-ui/javascript-part-2/resources">Telerik Academy resources</a>/</p><br/>
+		<input type="text" class="gridInput" id="addHeader"  placeholder="item1, item2, item3..."/><button class="gridButton" onclick="addHeader()">Add header</button>
+		<br/>
+		<input type="text" class="gridInput" id="addRow"  placeholder="item1, item2, item3..."/><button class="gridButton" onclick="addRow()">Add new row</button>
+		
+		
+		<div id="holder">
+			
+		</div>
+		<div id="nestedHolder">
+			
+		</div>
+		
+		<button class="gridButton" onclick="addSubGrid()">Create subgrid</button>
+		<input type="text"/ placeholder="row number:" id="inputRowSub"><br/>
+		
+		<input type="text" class="gridInput" id="addHeaderNested" style = "display:none"/><button class="gridButton" onclick="addHeaderNest()">Add header</button>
+		<input type="text" class="gridInput" id="addRowNested" style = "display:none"/><button class="gridButton" onclick="addRowNest()">Add row</button>
+		<br/><span>Click on the row to expand or collapse the subgrid</span><br/>
+		
+		
+		<br/>
+		<button class="gridButton" onclick="seriData()">Serialize data</button>
+		<br/>
+		<button class="gridButton" onclick="buildGrid()">Retireve grid from local storage</button>
+		
+		<div id="holder2">
+			
+		</div>
+		<div id="nestedHolder2">
+			
+		</div>
+	</div>	
+	<!-- -------------------------------------	 -->
+		
+		<section class = "newsletter">
+			<h4>Sign-Up Free to Receive Our Newsletter</h4>
+			<form action="post">
+				<input type="email" placeholder="email..." title="email address...">
+				<input type="submit" value="Submit"/>
+			</form>
+		</section>
+		
+		<section id="articleHolder">
+			
+			<article class = "article">
+				<img class="articleIcon" src="images/tasks-icon.png" width='34' height='34' alt="" />
+				<h5>Managing Your Tasks Easily</h5>
+				<p class="articlePar">
+					Lorem ipsum dolor sit amet, consectetuer adipiscing elit, sed diam nonummy nibh euismod tincidunt ut laoreet dolore magna aliquam erat volutpat. Ut wisi enim ad minim veniam, quis nostrud exerci tation ullamcorper suscipit lobortis nisl ut aliquip ex ea commodo consequat.
+				</p>
+			</article>
+			
+			<article class = "article">
+				<img class="articleIcon" src="images/business-icon.png" width='34' height='34' alt="" />
+				<h5>Simple Business Solutions</h5>
+				<p class="articlePar">
+					Lorem ipsum dolor sit amet, consectetuer adipiscing elit, sed diam nonummy nibh euismod <a href="#">tincidunt ut laoreet dolore magna aliquam</a> erat volutpat. Ut wisi enim ad minim veniam, quis nostrud exerci tation ullamcorper suscipit lobortis nisl ut aliquip ex ea commodo consequat.
+				</p>
+			</article>
+			
+			<article class = "article">
+				<img class="articleIcon" src="images/work-icon.png" width='34' height='34' alt="" />
+				<h5>Work Less Earn More</h5>
+				<p class="articlePar">
+					Lorem ipsum dolor sit amet, consectetuer adipiscing elit, sed diam nonummy nibh euismod tincidunt ut laoreet dolore magna aliquam erat volutpat. Ut wisi enim ad minim veniam, quis nostrud exerci tation ullamcorper suscipit lobortis nisl ut aliquip ex ea commodo consequat.
+				</p>
+			</article>
+			
+		</section>
+		
+		<section id = "subBoxHolder">
+			
+			<article class = "subBox">
+				<p class = "bulletNumber">1</p>
+				<h6>Magnus Opus Dolrest</h5>
+				<p class="subBoxPar">
+					Lorem ipsum dolor sit amet, consectetuer adipiscing elit, sed diam nonummy nibh euismod, consectetuer adipiscing elit. Sed diam nonummy dolor sit amet.
+				</p>
+				<button class="readMore">Read More</button>
+			</article>
+			
+			<article class = "subBox">
+				<p class = "bulletNumber">2</p>
+				<h6>Sit Ornare Turpis Orci</h5>
+				<p class="subBoxPar">
+					Lorem ipsum dolor sit amet, consectetuer adipiscing elit, sed diam nonummy nibh euismod, consectetuer adipiscing elit. Sed diam nonummy dolor sit amet.
+				</p>
+				<button class="readMore">Read More</button>
+			</article>
+			
+			<article class = "subBox">
+				<p class = "bulletNumber">3</p>
+				<h6>Ille Qui Nos Omnes Servabit</h5>
+				<p class="subBoxPar">
+					Lorem ipsum dolor sit amet, consectetuer adipiscing elit, sed diam nonummy nibh euismod, consectetuer adipiscing elit. Sed diam nonummy dolor sit amet.
+				</p>
+				<button class="readMore">Read More</button>
+			</article>
+			
+		</section>
+	
+	</div>
+	<footer id="mainFooter">
+		
+		<div class="footerList">
+			<h5>Quick Links</h5>
+			<ul>
+				<li>
+					<a href="#">Mirum est notare quam littera</a>
+				</li>
+				<li>
+					<a href="#">Duis autem vel eum iriure</a>
+				</li>
+				<li>
+					<a href="#">Nam liber tempor cum soluta</a>
+				</li>
+				<li>
+					<a href="#">Typi non habent claritatem insitam</a>
+				</li>
+				<li>
+					<a href="#">Eodem modo typi, qui nunc</a>
+				</li>
+			</ul>
+		</div>
+		
+		<div class="footerList">
+			<h5>From the Blog</h5>
+			<ul>
+				<li>
+					<a href="#">Mirum est notare quam littera</a>
+				</li>
+				<li>
+					<a href="#">Duis autem vel eum iriure</a>
+				</li>
+				<li>
+					<a href="#">Nam liber tempor cum soluta</a>
+				</li>
+				<li>
+					<a href="#">Typi non habent claritatem insitam</a>
+				</li>
+				<li>
+					<a href="#">Eodem modo typi, qui nunc</a>
+				</li>
+			</ul>
+		</div>
+		
+		<div class="footerList" id="thirdList">
+			<h5>Latest News</h5>
+			<ul>
+				<li>
+					<a href="#">Mirum est notare quam littera</a>
+				</li>
+				<li>
+					<a href="#">Duis autem vel eum iriure</a>
+				</li>
+				<li>
+					<a href="#">Nam liber tempor cum soluta</a>
+				</li>
+				<li>
+					<a href="#">Typi non habent claritatem insitam</a>
+				</li>
+				<li>
+					<a href="#">Eodem modo typi, qui nunc</a>
+				</li>
+			</ul>
+		</div>
+		
+		<div class="footerList" id="fourthList">
+			<h5>Helpful FAQ's</h5>
+			<ul>
+				<li>
+					<a href="#">Mirum est notare quam littera</a>
+				</li>
+				<li>
+					<a href="#">Duis autem vel eum iriure</a>
+				</li>
+				<li>
+					<a href="#">Nam liber tempor cum soluta</a>
+				</li>
+				<li>
+					<a href="#">Typi non habent claritatem insitam</a>
+				</li>
+				<li>
+					<a href="#">Eodem modo typi, qui nunc</a>
+				</li>
+			</ul>
+		</div>
+		
+		<div class="copyright">
+			All Rights Reserved PSD Style
+		</div> 
+		
+	</footer>
+	
+	<script type="text/javascript">
+		var holder = document.getElementById("holder");
+		holder.addEventListener("click", function (ev) {
+			var target = ev.target;
+			
+			if(target.id == "header") {
+				return;
+			} else {
+				
+				var targPar = target.parentNode;
+				var idElem = targPar.id;
+				var nestHolder = document.getElementById("nestedHolder" + idElem[3]);
+				if(nestHolder){
+					if (nestHolder.style.display == "block"){
+						nestHolder.style = "display: none";
+					}else{
+						nestHolder.style = "display: block";
+					}
+				} else {
+					return;
+				}
+			}
+			
+		}, false
+		)
+		
+		var holder2 = document.getElementById("holder2");
+		holder2.addEventListener("click", function (ev) {
+			var target = ev.target;
+			
+			if(target.id == "header") {
+				return;
+			} else {
+				
+				var targPar = target.parentNode;
+				var idElem = targPar.id;
+				var nestHolder = document.getElementById("nestedHolder2" + idElem[3]);
+				if(nestHolder){
+					if (nestHolder.style.display == "block"){
+						nestHolder.style = "display: none";
+					}else{
+						nestHolder.style = "display: block";
+					}
+				} else {
+					return;
+				}
+			}
+			
+		}, false
+		) 
+		
+		
+		var schoolsGrid = controls.getGridView("holder");
+		var tempRow;
+		var nestGrid;
+		var rowArr = [];
+		
+		var serGrid;
+		var serSubs;
+		
+		function addRow() {
+			var input = document.getElementById("addRow").value;
+			tempRow = schoolsGrid.addRow(input);
+			rowArr.push(tempRow);
+			schoolsGrid.render();
+		}
+		
+		function addHeader() {
+			var input = document.getElementById("addHeader").value;
+			schoolsGrid.addHeader(input);
+			schoolsGrid.render();
+		}
+		
+		function addSubGrid() {
+			var input = document.getElementById("inputRowSub").value;
+			var row = parseInt(input);
+			nestGrid = rowArr[row - 1].getNestedGridView();
+			var butt1 = document.getElementById("addHeaderNested");
+			butt1.style.display = "";
+			var butt2 = document.getElementById("addRowNested");
+			butt2.style.display = "";
+		}
+		
+		function addHeaderNest() {
+			var input = document.getElementById("addHeaderNested").value;
+			nestGrid.addHeader(input);
+			nestGrid.render();
+		}
+		
+		function addRowNest() {
+			var input = document.getElementById("addRowNested").value;
+			nestGrid.addRow(input);
+			nestGrid.render();
+		}
+		
+		function seriData() {
+			serGrid = controls.serializeGrid();
+			serSubs = controls.serializeSubGrids();
+			console.log(serGrid);
+			console.log(serSubs);
+			localStorage["serGrid"] = JSON.stringify(serGrid);
+			console.log(localStorage.getItem("serGrid"));
+			
+			localStorage["serSubs"] = JSON.stringify(serSubs);
+			console.log(localStorage.getItem("serSubs"));
+			
+			
+		}
+		
+		function buildGrid() {
+			var storedGrid = JSON.parse(localStorage["serGrid"]);
+			console.log(storedGrid);
+			var storedSubs = JSON.parse(localStorage["serSubs"]);
+			console.log(storedSubs);
+			
+			var retrievedGrid = controls.getGridView("holder2");
+			
+			
+			for (var i = 0; i < storedGrid.length; i++) {
+				
+				if(i == 0) {
+					retrievedGrid.addHeader(storedGrid[i].params.join(','));
+					retrievedGrid.render();
+				} else {
+					retrievedGrid.addRow(storedGrid[i].params.join(','));
+					retrievedGrid.render();
+				}
+				
+				
+			}
+			
+			
+		}
+		
+	</script>
+	
+	<!-- <script type="text/javascript" src="scripts/test.js"></script> -->
+</body>
+</html>
