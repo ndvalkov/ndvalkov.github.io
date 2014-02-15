@@ -1,0 +1,504 @@
+<!DOCTYPE HTML>
+<html lang="en-US">
+<head>
+	<meta charset="UTF-8">
+	<title>JSCabin-Snake</title>
+		
+		<!--[if lt IE 9]>
+		<script src="scripts/modernizr.js">
+		</script>
+		<link rel="stylesheet" href="styles/style_IE.css" />
+		<![endif]-->
+		
+		<![if !IE]>
+		<link rel="stylesheet" href="styles/style.css" />
+		<![endif]>
+		
+		<style type="text/css">
+		
+		#notesSnake {
+			width: 20%;
+			position: absolute;
+			right: 60px;
+			top: 30px;
+			color: black;
+			font-size: 1.7rem;
+		}
+		
+		#containerSnake {
+			margin:20px;
+			position: relative;
+		}
+		
+		#wrapper {
+			border: 2px solid grey;
+			width: 655px;
+			height: 505px;
+			padding: 5px;
+			border-radius: 10px;
+			background: rgb(206,220,231); /* Old browsers */
+			background: -moz-linear-gradient(top, rgba(206,220,231,1) 0%, rgba(89,106,114,1) 100%); /* FF3.6+ */
+			background: -webkit-gradient(linear, left top, left bottom, color-stop(0%,rgba(206,220,231,1)), color-stop(100%,rgba(89,106,114,1))); /* Chrome,Safari4+ */
+			background: -webkit-linear-gradient(top, rgba(206,220,231,1) 0%,rgba(89,106,114,1) 100%); /* Chrome10+,Safari5.1+ */
+			background: -o-linear-gradient(top, rgba(206,220,231,1) 0%,rgba(89,106,114,1) 100%); /* Opera 11.10+ */
+			background: -ms-linear-gradient(top, rgba(206,220,231,1) 0%,rgba(89,106,114,1) 100%); /* IE10+ */
+			background: linear-gradient(to bottom, rgba(206,220,231,1) 0%,rgba(89,106,114,1) 100%); /* W3C */
+			filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#cedce7', endColorstr='#596a72',GradientType=0 ); /* IE6-9 */
+		}
+		
+		canvas {
+			float: left;
+			border-radius: 10px;
+		}
+		
+		#input1 {
+			position: absolute;
+			top: 8px;
+			left: 520px;
+			margin: 7px;
+			border: 2px solid grey;
+			border-radius: 5px;
+			height: 50px;
+			font-family: Lucida Sans;
+			font-size: 13px;
+			text-align: center;
+			
+		}
+		
+		button#startButton {
+			position: absolute;
+			top: 488px;
+			left: 530px;
+			margin-left: 5px;
+			width: 100px;
+			color: #4C5966;
+			border-color: #4C5966;
+			border-radius: 5px;
+			font-size: 17px;
+			font-family: Lucida Sans;
+		}
+		
+		#score {
+			position: absolute;
+			top: 70px;
+			left: 530px;
+			font-size: 25px;
+			font-family: Lucida Sans;
+			margin-left: 5px;
+			color: green;
+		}
+		
+		#result {
+			position: absolute;
+			top: 100px;
+			left: 530px;
+			margin-left: 5px;
+			padding: 3px;
+			color: yellow;
+			font-family: Lucida Sans;
+			font-size: 25px;
+			
+		}
+		
+		#highScore {
+			position: absolute;
+			top: 140px;
+			left: 512px;
+			margin-left: 5px;
+			padding: 2px;
+			color: green;
+			font-family: Lucida Sans;
+			font-size: 25px;
+		}
+		
+		#result2 {
+			position: absolute;
+			top: 175px;
+			left: 530px;
+			margin-left: 5px;
+			padding: 3px;
+			color: yellow;
+			font-family: Lucida Sans;
+			font-size: 25px;
+			
+		}
+		
+		</style>
+		<script type="text/javascript" src = "scripts/scriptSnake.js"></script>
+	
+</head>
+<body>
+	<header id = "header">
+		
+		<div id = "logoSite">
+		
+			<img src="images/js-cabin-logo.png" alt="no image" width = "100" height = "68" />
+			<div><h1><a href="#">JScabin</a></h1></div>
+			<p>
+				<strong>My exercises in programming with JavaScript, HTML and CSS</strong>
+			</p>
+			
+		</div>
+		
+		<div id="container">
+			
+			<ul>
+				<li>
+					<a href="#" title = "sign up">Sign-up</a>
+				</li>
+				<li>
+					<a href="#" title = "log in">Log-in</a>
+				</li>
+				<li>
+					<a href="#" title = "contact us">Contact</a>
+				</li>
+			</ul>
+			
+			<input type="search" title = "search..." placeholder = "search.."/>
+			
+		</div>
+		
+	</header>
+	
+	<div id = "siteWrapper">
+		
+		<nav id="naviMain">
+			<ul>
+				<li>
+					<a href="index.html" title="home page">Home</a>
+				</li><li>
+					<a href="grid.html" title="about us">Grid View</a>
+				</li><li>
+					<a href="#" title="features" style="color:#87CEFA">Snake</a>
+				</li><li>
+					<a href="#" title="services">Services</a>
+				</li><li>
+					<a href="#" title="newsletter">Newsletter</a>
+				</li><li>
+					<a href="#" title="demo">Demo</a>
+				</li><li>
+					<a href="#" title="extra">Extra</a>
+				</li><li>
+					<a href="#" title="blog">blog</a>
+				</li><li>
+					<a href="#" title="contact">Contact</a>
+				</li>
+			</ul>
+		</nav>
+	
+	<!-- ----------------------------------- -->
+	<p id="notesSnake">Notes: JavaScript pt2, API, last problem. Without(partial) OOP. Used a Canvas method called "getImageData" to detect collisions. Doesn't work properly. Also could lead to performance problems, because of too many method invocations. Should have used a grid(array matrix) instead. </p>
+	<div id="containerSnake">
+		<div id = "wrapper">
+	
+		<canvas id = "myCanvas" width = "500px" height = "500px">///The browser does not support Canvas///</canvas>
+		<input type="text" id = "input1" />
+		<button id = "startButton" onclick = "startGame()">Start</button>
+		<div id = "score">Score:</div>
+		<div id = "result">000</div>
+		<div id = "highScore">High Score:</div>
+		<div id = "result2">000</div>
+		
+		</div>
+	</div>	
+	<!-- -------------------------------------	 -->
+		
+		<section class = "newsletter">
+			<h4>Sign-Up Free to Receive Our Newsletter</h4>
+			<form action="post">
+				<input type="email" placeholder="email..." title="email address...">
+				<input type="submit" value="Submit"/>
+			</form>
+		</section>
+		
+		<section id="articleHolder">
+			
+			<article class = "article">
+				<img class="articleIcon" src="images/tasks-icon.png" width='34' height='34' alt="" />
+				<h5>Managing Your Tasks Easily</h5>
+				<p class="articlePar">
+					Lorem ipsum dolor sit amet, consectetuer adipiscing elit, sed diam nonummy nibh euismod tincidunt ut laoreet dolore magna aliquam erat volutpat. Ut wisi enim ad minim veniam, quis nostrud exerci tation ullamcorper suscipit lobortis nisl ut aliquip ex ea commodo consequat.
+				</p>
+			</article>
+			
+			<article class = "article">
+				<img class="articleIcon" src="images/business-icon.png" width='34' height='34' alt="" />
+				<h5>Simple Business Solutions</h5>
+				<p class="articlePar">
+					Lorem ipsum dolor sit amet, consectetuer adipiscing elit, sed diam nonummy nibh euismod <a href="#">tincidunt ut laoreet dolore magna aliquam</a> erat volutpat. Ut wisi enim ad minim veniam, quis nostrud exerci tation ullamcorper suscipit lobortis nisl ut aliquip ex ea commodo consequat.
+				</p>
+			</article>
+			
+			<article class = "article">
+				<img class="articleIcon" src="images/work-icon.png" width='34' height='34' alt="" />
+				<h5>Work Less Earn More</h5>
+				<p class="articlePar">
+					Lorem ipsum dolor sit amet, consectetuer adipiscing elit, sed diam nonummy nibh euismod tincidunt ut laoreet dolore magna aliquam erat volutpat. Ut wisi enim ad minim veniam, quis nostrud exerci tation ullamcorper suscipit lobortis nisl ut aliquip ex ea commodo consequat.
+				</p>
+			</article>
+			
+		</section>
+		
+		<section id = "subBoxHolder">
+			
+			<article class = "subBox">
+				<p class = "bulletNumber">1</p>
+				<h6>Magnus Opus Dolrest</h5>
+				<p class="subBoxPar">
+					Lorem ipsum dolor sit amet, consectetuer adipiscing elit, sed diam nonummy nibh euismod, consectetuer adipiscing elit. Sed diam nonummy dolor sit amet.
+				</p>
+				<button class="readMore">Read More</button>
+			</article>
+			
+			<article class = "subBox">
+				<p class = "bulletNumber">2</p>
+				<h6>Sit Ornare Turpis Orci</h5>
+				<p class="subBoxPar">
+					Lorem ipsum dolor sit amet, consectetuer adipiscing elit, sed diam nonummy nibh euismod, consectetuer adipiscing elit. Sed diam nonummy dolor sit amet.
+				</p>
+				<button class="readMore">Read More</button>
+			</article>
+			
+			<article class = "subBox">
+				<p class = "bulletNumber">3</p>
+				<h6>Ille Qui Nos Omnes Servabit</h5>
+				<p class="subBoxPar">
+					Lorem ipsum dolor sit amet, consectetuer adipiscing elit, sed diam nonummy nibh euismod, consectetuer adipiscing elit. Sed diam nonummy dolor sit amet.
+				</p>
+				<button class="readMore">Read More</button>
+			</article>
+			
+		</section>
+	
+	</div>
+	<footer id="mainFooter">
+		
+		<div class="footerList">
+			<h5>Quick Links</h5>
+			<ul>
+				<li>
+					<a href="#">Mirum est notare quam littera</a>
+				</li>
+				<li>
+					<a href="#">Duis autem vel eum iriure</a>
+				</li>
+				<li>
+					<a href="#">Nam liber tempor cum soluta</a>
+				</li>
+				<li>
+					<a href="#">Typi non habent claritatem insitam</a>
+				</li>
+				<li>
+					<a href="#">Eodem modo typi, qui nunc</a>
+				</li>
+			</ul>
+		</div>
+		
+		<div class="footerList">
+			<h5>From the Blog</h5>
+			<ul>
+				<li>
+					<a href="#">Mirum est notare quam littera</a>
+				</li>
+				<li>
+					<a href="#">Duis autem vel eum iriure</a>
+				</li>
+				<li>
+					<a href="#">Nam liber tempor cum soluta</a>
+				</li>
+				<li>
+					<a href="#">Typi non habent claritatem insitam</a>
+				</li>
+				<li>
+					<a href="#">Eodem modo typi, qui nunc</a>
+				</li>
+			</ul>
+		</div>
+		
+		<div class="footerList" id="thirdList">
+			<h5>Latest News</h5>
+			<ul>
+				<li>
+					<a href="#">Mirum est notare quam littera</a>
+				</li>
+				<li>
+					<a href="#">Duis autem vel eum iriure</a>
+				</li>
+				<li>
+					<a href="#">Nam liber tempor cum soluta</a>
+				</li>
+				<li>
+					<a href="#">Typi non habent claritatem insitam</a>
+				</li>
+				<li>
+					<a href="#">Eodem modo typi, qui nunc</a>
+				</li>
+			</ul>
+		</div>
+		
+		<div class="footerList" id="fourthList">
+			<h5>Helpful FAQ's</h5>
+			<ul>
+				<li>
+					<a href="#">Mirum est notare quam littera</a>
+				</li>
+				<li>
+					<a href="#">Duis autem vel eum iriure</a>
+				</li>
+				<li>
+					<a href="#">Nam liber tempor cum soluta</a>
+				</li>
+				<li>
+					<a href="#">Typi non habent claritatem insitam</a>
+				</li>
+				<li>
+					<a href="#">Eodem modo typi, qui nunc</a>
+				</li>
+			</ul>
+		</div>
+		
+		<div class="copyright">
+			All Rights Reserved PSD Style
+		</div> 
+		
+	</footer>
+	
+	<script type="text/javascript">
+		var holder = document.getElementById("holder");
+		holder.addEventListener("click", function (ev) {
+			var target = ev.target;
+			
+			if(target.id == "header") {
+				return;
+			} else {
+				
+				var targPar = target.parentNode;
+				var idElem = targPar.id;
+				var nestHolder = document.getElementById("nestedHolder" + idElem[3]);
+				if(nestHolder){
+					if (nestHolder.style.display == "block"){
+						nestHolder.style = "display: none";
+					}else{
+						nestHolder.style = "display: block";
+					}
+				} else {
+					return;
+				}
+			}
+			
+		}, false
+		)
+		
+		var holder2 = document.getElementById("holder2");
+		holder2.addEventListener("click", function (ev) {
+			var target = ev.target;
+			
+			if(target.id == "header") {
+				return;
+			} else {
+				
+				var targPar = target.parentNode;
+				var idElem = targPar.id;
+				var nestHolder = document.getElementById("nestedHolder2" + idElem[3]);
+				if(nestHolder){
+					if (nestHolder.style.display == "block"){
+						nestHolder.style = "display: none";
+					}else{
+						nestHolder.style = "display: block";
+					}
+				} else {
+					return;
+				}
+			}
+			
+		}, false
+		) 
+		
+		
+		var schoolsGrid = controls.getGridView("holder");
+		var tempRow;
+		var nestGrid;
+		var rowArr = [];
+		
+		var serGrid;
+		var serSubs;
+		
+		function addRow() {
+			var input = document.getElementById("addRow").value;
+			tempRow = schoolsGrid.addRow(input);
+			rowArr.push(tempRow);
+			schoolsGrid.render();
+		}
+		
+		function addHeader() {
+			var input = document.getElementById("addHeader").value;
+			schoolsGrid.addHeader(input);
+			schoolsGrid.render();
+		}
+		
+		function addSubGrid() {
+			var input = document.getElementById("inputRowSub").value;
+			var row = parseInt(input);
+			nestGrid = rowArr[row - 1].getNestedGridView();
+			var butt1 = document.getElementById("addHeaderNested");
+			butt1.style.display = "";
+			var butt2 = document.getElementById("addRowNested");
+			butt2.style.display = "";
+		}
+		
+		function addHeaderNest() {
+			var input = document.getElementById("addHeaderNested").value;
+			nestGrid.addHeader(input);
+			nestGrid.render();
+		}
+		
+		function addRowNest() {
+			var input = document.getElementById("addRowNested").value;
+			nestGrid.addRow(input);
+			nestGrid.render();
+		}
+		
+		function seriData() {
+			serGrid = controls.serializeGrid();
+			serSubs = controls.serializeSubGrids();
+			console.log(serGrid);
+			console.log(serSubs);
+			localStorage["serGrid"] = JSON.stringify(serGrid);
+			console.log(localStorage.getItem("serGrid"));
+			
+			localStorage["serSubs"] = JSON.stringify(serSubs);
+			console.log(localStorage.getItem("serSubs"));
+			
+			
+		}
+		
+		function buildGrid() {
+			var storedGrid = JSON.parse(localStorage["serGrid"]);
+			console.log(storedGrid);
+			var storedSubs = JSON.parse(localStorage["serSubs"]);
+			console.log(storedSubs);
+			
+			var retrievedGrid = controls.getGridView("holder2");
+			
+			
+			for (var i = 0; i < storedGrid.length; i++) {
+				
+				if(i == 0) {
+					retrievedGrid.addHeader(storedGrid[i].params.join(','));
+					retrievedGrid.render();
+				} else {
+					retrievedGrid.addRow(storedGrid[i].params.join(','));
+					retrievedGrid.render();
+				}
+				
+				
+			}
+			
+			
+		}
+		
+	</script>
+	
+	<!-- <script type="text/javascript" src="scripts/test.js"></script> -->
+</body>
+</html>
