@@ -1,5 +1,4 @@
 
-
 // var snakeGame = (function () {
 	
 	// var hasStarted = false;
@@ -132,22 +131,22 @@ window.onload = function () {
 		
 		
 		switch (evt.keyCode) {
-			case 37: directionHead = "left"; 
+			case 65: directionHead = "left"; 
 				tailDirections.unshift("left");
 				curvePoints.push(posX);
 				curvePoints.push(posY);
 				break;
-			case 38: directionHead = "up"; 
+			case 87: directionHead = "up"; 
 				tailDirections.unshift("up");
 				curvePoints.push(posX);
 				curvePoints.push(posY);
 				break;
-			case 39: directionHead = "right"; 
+			case 68: directionHead = "right"; 
 				tailDirections.unshift("right");
 				curvePoints.push(posX);
 				curvePoints.push(posY);
 				break;
-			case 40: directionHead = "down"; 
+			case 83: directionHead = "down"; 
 				tailDirections.unshift("down");
 				curvePoints.push(posX);
 				curvePoints.push(posY);
