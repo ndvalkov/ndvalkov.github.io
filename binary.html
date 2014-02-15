@@ -1,0 +1,432 @@
+<!DOCTYPE HTML>
+<html lang="en-US">
+<head>
+	<meta charset="UTF-8">
+	<title>JSCabin-Binary</title>
+		
+		<!--[if lt IE 9]>
+		<script src="scripts/modernizr.js">
+		</script>
+		<link rel="stylesheet" href="styles/style_IE.css" />
+		<![endif]-->
+		
+		<![if !IE]>
+		<link rel="stylesheet" href="styles/style.css" />
+		<![endif]>
+		
+		<style type="text/css">
+		#binarContainer {
+			margin: 20px;
+			color: black;
+			font-size: 1.3rem;
+		}
+		
+		#binarContainer p:first-of-type {
+			font-size: 1.7rem;
+			margin: 10px auto;
+		}
+		
+		#binarContainer input {
+		    width: 200px;
+		}
+		
+		#binarContainer input[type = "button"]{
+			width: 50px;
+		}
+		
+		#binarContainer textarea#resultArea {
+		    width: 400px;
+			height: 100px;
+			display: block;
+			border: 2px solid grey;
+			margin-top: 10px;
+		}
+		
+		</style>
+		<script type="text/javascript" src = "scripts/scriptBinary.js"></script>
+	
+</head>
+<body>
+	<header id = "header">
+		
+		<div id = "logoSite">
+		
+			<img src="images/js-cabin-logo.png" alt="no image" width = "100" height = "68" />
+			<div><h1><a href="#">JScabin</a></h1></div>
+			<p>
+				<strong>My exercises in programming with JavaScript, HTML and CSS</strong>
+			</p>
+			
+		</div>
+		
+		<div id="container">
+			
+			<ul>
+				<li>
+					<a href="#" title = "sign up">Sign-up</a>
+				</li>
+				<li>
+					<a href="#" title = "log in">Log-in</a>
+				</li>
+				<li>
+					<a href="#" title = "contact us">Contact</a>
+				</li>
+			</ul>
+			
+			<input type="search" title = "search..." placeholder = "search.."/>
+			
+		</div>
+		
+	</header>
+	
+	<div id = "siteWrapper">
+		
+		<nav id="naviMain">
+			<ul>
+				<li>
+					<a href="index.html" title="home page">Home</a>
+				</li><li>
+					<a href="grid.html" title="grid exam">Grid View</a>
+				</li><li>
+					<a href="snake.html" title="snake game">Snake</a>
+				</li><li>
+					<a href="tag.html" title="tag problem">TagCloud</a>
+				</li><li>
+					<a href="#" title="binary problem" style="color:#87CEFA">Binary</a>
+				</li><li>
+					<a href="exer.html" title="exercises Telerik">Exercises</a>
+				</li><li>
+					<a href="#" title="nothing">Lorem</a>
+				</li><li>
+					<a href="#" title="nothing">Lorem</a>
+				</li><li>
+					<a href="#" title="contact">Contact</a>
+				</li>
+			</ul>
+		</nav>
+	
+	<!-- ----------------------------------- -->
+	<div id="binarContainer">
+		<p>
+			Notes: JavaScript pt1, Arrays, last problem. Implements "Selection sort" and "Binary search" algorithms.
+		</p>
+		
+		Array elements:
+		<input type = "text" id = "text1" value = ""></input>
+		Sort:
+		<input type = "text" id = "text2" value = ""></input>
+		<input type="button" onclick="sortInput()" value="Sort">
+		Enter element:
+		<input type = "text" id = "text3" value = ""></input>
+		
+		<input type="button" onclick="getInput()" value="Solve">
+		
+		<textarea name="" id="resultArea" cols="30" rows="30" value = "11"></textarea>
+		<!-- <input type = "text" id = "resultArea" value = "0"></input> -->
+		
+		<p>
+				Write a program that finds the index of given element in a sorted array of integers by using the binary search algorithm (find it in Wikipedia)
+
+		</p>
+	</div>
+	<!-- -------------------------------------	 -->
+		
+		<section class = "newsletter">
+			<h4>Sign-Up Free to Receive Our Newsletter</h4>
+			<form action="post">
+				<input type="email" placeholder="email..." title="email address...">
+				<input type="submit" value="Submit"/>
+			</form>
+		</section>
+		
+		<section id="articleHolder">
+			
+			<article class = "article">
+				<img class="articleIcon" src="images/tasks-icon.png" width='34' height='34' alt="" />
+				<h5>Managing Your Tasks Easily</h5>
+				<p class="articlePar">
+					Lorem ipsum dolor sit amet, consectetuer adipiscing elit, sed diam nonummy nibh euismod tincidunt ut laoreet dolore magna aliquam erat volutpat. Ut wisi enim ad minim veniam, quis nostrud exerci tation ullamcorper suscipit lobortis nisl ut aliquip ex ea commodo consequat.
+				</p>
+			</article>
+			
+			<article class = "article">
+				<img class="articleIcon" src="images/business-icon.png" width='34' height='34' alt="" />
+				<h5>Simple Business Solutions</h5>
+				<p class="articlePar">
+					Lorem ipsum dolor sit amet, consectetuer adipiscing elit, sed diam nonummy nibh euismod <a href="#">tincidunt ut laoreet dolore magna aliquam</a> erat volutpat. Ut wisi enim ad minim veniam, quis nostrud exerci tation ullamcorper suscipit lobortis nisl ut aliquip ex ea commodo consequat.
+				</p>
+			</article>
+			
+			<article class = "article">
+				<img class="articleIcon" src="images/work-icon.png" width='34' height='34' alt="" />
+				<h5>Work Less Earn More</h5>
+				<p class="articlePar">
+					Lorem ipsum dolor sit amet, consectetuer adipiscing elit, sed diam nonummy nibh euismod tincidunt ut laoreet dolore magna aliquam erat volutpat. Ut wisi enim ad minim veniam, quis nostrud exerci tation ullamcorper suscipit lobortis nisl ut aliquip ex ea commodo consequat.
+				</p>
+			</article>
+			
+		</section>
+		
+		<section id = "subBoxHolder">
+			
+			<article class = "subBox">
+				<p class = "bulletNumber">1</p>
+				<h6>Magnus Opus Dolrest</h5>
+				<p class="subBoxPar">
+					Lorem ipsum dolor sit amet, consectetuer adipiscing elit, sed diam nonummy nibh euismod, consectetuer adipiscing elit. Sed diam nonummy dolor sit amet.
+				</p>
+				<button class="readMore">Read More</button>
+			</article>
+			
+			<article class = "subBox">
+				<p class = "bulletNumber">2</p>
+				<h6>Sit Ornare Turpis Orci</h5>
+				<p class="subBoxPar">
+					Lorem ipsum dolor sit amet, consectetuer adipiscing elit, sed diam nonummy nibh euismod, consectetuer adipiscing elit. Sed diam nonummy dolor sit amet.
+				</p>
+				<button class="readMore">Read More</button>
+			</article>
+			
+			<article class = "subBox">
+				<p class = "bulletNumber">3</p>
+				<h6>Ille Qui Nos Omnes Servabit</h5>
+				<p class="subBoxPar">
+					Lorem ipsum dolor sit amet, consectetuer adipiscing elit, sed diam nonummy nibh euismod, consectetuer adipiscing elit. Sed diam nonummy dolor sit amet.
+				</p>
+				<button class="readMore">Read More</button>
+			</article>
+			
+		</section>
+	
+	</div>
+	<footer id="mainFooter">
+		
+		<div class="footerList">
+			<h5>Quick Links</h5>
+			<ul>
+				<li>
+					<a href="#">Mirum est notare quam littera</a>
+				</li>
+				<li>
+					<a href="#">Duis autem vel eum iriure</a>
+				</li>
+				<li>
+					<a href="#">Nam liber tempor cum soluta</a>
+				</li>
+				<li>
+					<a href="#">Typi non habent claritatem insitam</a>
+				</li>
+				<li>
+					<a href="#">Eodem modo typi, qui nunc</a>
+				</li>
+			</ul>
+		</div>
+		
+		<div class="footerList">
+			<h5>From the Blog</h5>
+			<ul>
+				<li>
+					<a href="#">Mirum est notare quam littera</a>
+				</li>
+				<li>
+					<a href="#">Duis autem vel eum iriure</a>
+				</li>
+				<li>
+					<a href="#">Nam liber tempor cum soluta</a>
+				</li>
+				<li>
+					<a href="#">Typi non habent claritatem insitam</a>
+				</li>
+				<li>
+					<a href="#">Eodem modo typi, qui nunc</a>
+				</li>
+			</ul>
+		</div>
+		
+		<div class="footerList" id="thirdList">
+			<h5>Latest News</h5>
+			<ul>
+				<li>
+					<a href="#">Mirum est notare quam littera</a>
+				</li>
+				<li>
+					<a href="#">Duis autem vel eum iriure</a>
+				</li>
+				<li>
+					<a href="#">Nam liber tempor cum soluta</a>
+				</li>
+				<li>
+					<a href="#">Typi non habent claritatem insitam</a>
+				</li>
+				<li>
+					<a href="#">Eodem modo typi, qui nunc</a>
+				</li>
+			</ul>
+		</div>
+		
+		<div class="footerList" id="fourthList">
+			<h5>Helpful FAQ's</h5>
+			<ul>
+				<li>
+					<a href="#">Mirum est notare quam littera</a>
+				</li>
+				<li>
+					<a href="#">Duis autem vel eum iriure</a>
+				</li>
+				<li>
+					<a href="#">Nam liber tempor cum soluta</a>
+				</li>
+				<li>
+					<a href="#">Typi non habent claritatem insitam</a>
+				</li>
+				<li>
+					<a href="#">Eodem modo typi, qui nunc</a>
+				</li>
+			</ul>
+		</div>
+		
+		<div class="copyright">
+			All Rights Reserved PSD Style
+		</div> 
+		
+	</footer>
+	
+	<script type="text/javascript">
+		var holder = document.getElementById("holder");
+		holder.addEventListener("click", function (ev) {
+			var target = ev.target;
+			
+			if(target.id == "header") {
+				return;
+			} else {
+				
+				var targPar = target.parentNode;
+				var idElem = targPar.id;
+				var nestHolder = document.getElementById("nestedHolder" + idElem[3]);
+				if(nestHolder){
+					if (nestHolder.style.display == "block"){
+						nestHolder.style = "display: none";
+					}else{
+						nestHolder.style = "display: block";
+					}
+				} else {
+					return;
+				}
+			}
+			
+		}, false
+		)
+		
+		var holder2 = document.getElementById("holder2");
+		holder2.addEventListener("click", function (ev) {
+			var target = ev.target;
+			
+			if(target.id == "header") {
+				return;
+			} else {
+				
+				var targPar = target.parentNode;
+				var idElem = targPar.id;
+				var nestHolder = document.getElementById("nestedHolder2" + idElem[3]);
+				if(nestHolder){
+					if (nestHolder.style.display == "block"){
+						nestHolder.style = "display: none";
+					}else{
+						nestHolder.style = "display: block";
+					}
+				} else {
+					return;
+				}
+			}
+			
+		}, false
+		) 
+		
+		
+		var schoolsGrid = controls.getGridView("holder");
+		var tempRow;
+		var nestGrid;
+		var rowArr = [];
+		
+		var serGrid;
+		var serSubs;
+		
+		function addRow() {
+			var input = document.getElementById("addRow").value;
+			tempRow = schoolsGrid.addRow(input);
+			rowArr.push(tempRow);
+			schoolsGrid.render();
+		}
+		
+		function addHeader() {
+			var input = document.getElementById("addHeader").value;
+			schoolsGrid.addHeader(input);
+			schoolsGrid.render();
+		}
+		
+		function addSubGrid() {
+			var input = document.getElementById("inputRowSub").value;
+			var row = parseInt(input);
+			nestGrid = rowArr[row - 1].getNestedGridView();
+			var butt1 = document.getElementById("addHeaderNested");
+			butt1.style.display = "";
+			var butt2 = document.getElementById("addRowNested");
+			butt2.style.display = "";
+		}
+		
+		function addHeaderNest() {
+			var input = document.getElementById("addHeaderNested").value;
+			nestGrid.addHeader(input);
+			nestGrid.render();
+		}
+		
+		function addRowNest() {
+			var input = document.getElementById("addRowNested").value;
+			nestGrid.addRow(input);
+			nestGrid.render();
+		}
+		
+		function seriData() {
+			serGrid = controls.serializeGrid();
+			serSubs = controls.serializeSubGrids();
+			console.log(serGrid);
+			console.log(serSubs);
+			localStorage["serGrid"] = JSON.stringify(serGrid);
+			console.log(localStorage.getItem("serGrid"));
+			
+			localStorage["serSubs"] = JSON.stringify(serSubs);
+			console.log(localStorage.getItem("serSubs"));
+			
+			
+		}
+		
+		function buildGrid() {
+			var storedGrid = JSON.parse(localStorage["serGrid"]);
+			console.log(storedGrid);
+			var storedSubs = JSON.parse(localStorage["serSubs"]);
+			console.log(storedSubs);
+			
+			var retrievedGrid = controls.getGridView("holder2");
+			
+			
+			for (var i = 0; i < storedGrid.length; i++) {
+				
+				if(i == 0) {
+					retrievedGrid.addHeader(storedGrid[i].params.join(','));
+					retrievedGrid.render();
+				} else {
+					retrievedGrid.addRow(storedGrid[i].params.join(','));
+					retrievedGrid.render();
+				}
+				
+				
+			}
+			
+			
+		}
+		
+	</script>
+	
+	<!-- <script type="text/javascript" src="scripts/test.js"></script> -->
+</body>
+</html>
