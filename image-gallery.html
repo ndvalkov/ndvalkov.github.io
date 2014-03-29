@@ -2,7 +2,7 @@
 <html lang="en-US">
 <head>
 	<meta charset="UTF-8">
-	<title>JSCabin-Exercises</title>
+	<title>JSCabin-Binary</title>
 		
 		<!--[if lt IE 9]>
 		<script src="scripts/modernizr.js">
@@ -15,21 +15,73 @@
 		<![endif]>
 		
 		<style type="text/css">
-		
-		p#exer {
-			font-size: 1.7rem;
-			color: black;
-			margin:20px;
-		}
-		
-		p#exer a {
-			
-			color:blue;
-		}
-		
+						
+			#gridHolder ul {
+				list-style-type: none;
+				padding: 0;
+				color: black;
+			}
+
+			ul#gridViewImages {
+				left: 400px;
+				border-bottom: 1px ridge black;
+			}
+
+				ul#gridViewImages>li {
+					border: 1px solid green;
+					padding: 10px;
+					display: inline-block;
+					text-align: center;
+				}
+
+			ul#gridViewAlbums {
+				display: inline-block;
+				padding: 5px;
+				border: 1px groove black;
+			}
+
+				ul#gridViewAlbums>li {
+					display: inline-block;
+					
+				}
+
+			.albums {
+				border: 1px solid #ff0022;
+				display: inline-block;
+				vertical-align: top;
+				padding: 10px;
+				margin: 5px;
+				color: blue;
+			}
+
+			.albumAlbums {
+				display: block;
+			}
+
+			.images {
+				display: inline-block;
+				margin: 5px;
+			}
+
+			#focusImg {
+				display: inline-block;
+				margin-left: 30px;
+				vertical-align: middle;
+			}
+
+			h3 {
+				border-bottom: 1px solid #993399;
+				text-align: center;
+			}
+
+			h4, h3 {
+				margin: 0;
+			}
+
 		</style>
 		
-	
+		<script type="text/javascript" src = "scripts/script-gal.js"></script>
+		<script type="text/javascript" src = "scripts/tests-gal.js"></script>
 </head>
 <body>
 	<header id = "header">
@@ -73,17 +125,17 @@
 				</li><li>
 					<a href="grid.html" title="grid exam">Grid View</a>
 				</li><li>
-					<a href="snake.html" title="snake game" >Snake</a>
+					<a href="snake.html" title="snake game">Snake</a>
 				</li><li>
-					<a href="tag.html" title="tag problem">Tag Cloud</a>
+					<a href="tag.html" title="tag problem">TagCloud</a>
 				</li><li>
 					<a href="binary.html" title="binary problem">Binary</a>
 				</li><li>
-					<a href="#" title="exercises Telerik" style="color:#87CEFA">Exercises</a>
+					<a href="exer.html" title="exercises Telerik">Exercises</a>
 				</li><li>
 					<a href="snake2.html" title="snake game 2">Snake v2</a>
 				</li><li>
-					<a href="image-gallery.html" title="img gallery">Image Gallery</a>
+					<a href="image-gallery.html" title="img gallery" style="color:#87CEFA">Image Gallery</a>
 				</li><li>
 					<a href="#" title="contact">Contact</a>
 				</li>
@@ -91,7 +143,164 @@
 		</nav>
 	
 	<!-- ----------------------------------- -->
-	<p id="exer"><a href="https://github.com/ndvalkov/myExercises/tree/master/Exercises">Problems/homework</a> from Telerik Academy's courses. (HTML, CSS, Slice/Dice, JavaScript pt1, JavaScript pt2, C# pt1, C# pt2)</p>
+	<p style="float:right; color:black; font-size: 2rem; margin-right: 100px; margin-top: 10px">Notes: exam JavaScript pt.2, Image Gallery/<a href="http://academy.telerik.com/student-courses/web-design-and-ui/javascript-part-2/resources" style="color:blue">Telerik Academy resources</a>/the source code is in Exercises -> Advanced(02.14)</p>
+	<div id="gridHolder">
+		
+	</div>
+	
+	
+	
+	<!-- <div id="gridHolder2">
+		
+		<ul id="gridViewImages-">
+			<li class="images">
+				<h4>TitleImg</h4>
+				<img src="http://placehold.it/40x40">
+			</li>
+			<li class="images">
+				<h4>TitleImg</h4>
+				<img src="http://placehold.it/40x40">
+			</li>
+			<li class="images">
+				<h4>TitleImg</h4>
+				<img src="http://placehold.it/40x40">
+			</li>
+		</ul>
+	
+		<ul id="gridViewAlbums-">
+			<li>
+				<div class="albums">
+					<h3>AlbumTitle</h3>
+					<ul class="albumImages">
+						<li class="images">
+							<h4>TitleImg</h4>
+							<img src="http://placehold.it/40x40">
+						</li>
+						<li class="images">
+							<h4>TitleImg</h4>
+							<img src="http://placehold.it/40x40">
+						</li>
+						<li class="images">
+							<h4>TitleImg</h4>
+							<img src="http://placehold.it/40x40">
+						</li>
+						<li class="images">
+							<h4>TitleImg</h4>
+							<img src="http://placehold.it/40x40">
+						</li>
+						<li class="images">
+							<h4>TitleImg</h4>
+							<img src="http://placehold.it/40x40">
+						</li>
+					</ul>
+					<ul class = "albumAlbums">
+						<li>
+							<div class="albums">
+								<h3>AlbumTitle</h3>
+								<ul class="albumImages">
+									<li class="images">
+										<h4>TitleImg</h4>
+										<img src="http://placehold.it/40x40">
+									</li>
+									<li class="images">
+										<h4>TitleImg</h4>
+										<img src="http://placehold.it/40x40">
+									</li>
+									<li class="images">
+										<h4>TitleImg</h4>
+										<img src="http://placehold.it/40x40">
+									</li>
+								</ul>
+								
+								<ul class="albumAlbums">
+									
+								</ul>
+								
+							</div>
+						</li>
+						<li>
+							<div class="albums">
+								
+							</div>
+						</li>
+					</ul>
+				</div>
+			</li>
+			<li>
+				<div class="albums">
+					<h3>AlbumTitle</h3>
+					<ul class="albumImages">
+						<li class="images">
+							<h4>TitleImg</h4>
+							<img src="http://placehold.it/40x40">
+						</li>
+						<li class="images">
+							<h4>TitleImg</h4>
+							<img src="http://placehold.it/40x40">
+						</li>
+						<li class="images">
+							<h4>TitleImg</h4>
+							<img src="http://placehold.it/40x40">
+						</li>
+					</ul>
+					
+					<ul class = "albumAlbums">
+						<li>
+							<div class="albums">
+								
+							</div>
+						</li>
+						<li>
+							<div class="albums">
+								
+							</div>
+						</li>
+					</ul>
+					
+				</div>
+			</li>
+			<li>
+				<div class="albums">
+					<h3>AlbumTitle</h3>
+					<ul class="albumImages">
+						<li class="images">
+							<h4>TitleImg</h4>
+							<img src="http://placehold.it/40x40">
+						</li>
+						<li class="images">
+							<h4>TitleImg</h4>
+							<img src="http://placehold.it/40x40">
+						</li>
+						<li class="images">
+							<h4>TitleImg</h4>
+							<img src="http://placehold.it/40x40">
+						</li>
+					</ul>
+					
+					<ul class = "albumAlbums">
+						<li>
+							<div class="albums">
+								
+							</div>
+						</li>
+						<li>
+							<div class="albums">
+								
+							</div>
+						</li>
+					</ul>
+					
+				</div>
+			</li>
+		</ul>
+		
+	</div> -->
+	
+	
+	
+	
+	<script type="text/javascript" src="scripts/local-storage-extensions.js"></script>
+	<script type="text/javascript" src="scripts/tests-gal.js"></script>
 	<!-- -------------------------------------	 -->
 		
 		<section class = "newsletter">
@@ -393,3 +602,8 @@
 	<!-- <script type="text/javascript" src="scripts/test.js"></script> -->
 </body>
 </html>
+
+
+
+
+

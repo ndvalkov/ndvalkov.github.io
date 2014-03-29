@@ -2,7 +2,7 @@
 <html lang="en-US">
 <head>
 	<meta charset="UTF-8">
-	<title>JSCabin-Exercises</title>
+	<title>JSCabin-Binary</title>
 		
 		<!--[if lt IE 9]>
 		<script src="scripts/modernizr.js">
@@ -15,21 +15,16 @@
 		<![endif]>
 		
 		<style type="text/css">
-		
-		p#exer {
-			font-size: 1.7rem;
-			color: black;
-			margin:20px;
-		}
-		
-		p#exer a {
+			canvas {
+				border: 1px solid grey;
+				margin-top: 10px;
+				margin-left: 10px;
+			}
 			
-			color:blue;
-		}
-		
+			
 		</style>
 		
-	
+		<script type="text/javascript" src = "scripts/script.js"></script>
 </head>
 <body>
 	<header id = "header">
@@ -73,15 +68,15 @@
 				</li><li>
 					<a href="grid.html" title="grid exam">Grid View</a>
 				</li><li>
-					<a href="snake.html" title="snake game" >Snake</a>
+					<a href="snake.html" title="snake game">Snake</a>
 				</li><li>
-					<a href="tag.html" title="tag problem">Tag Cloud</a>
+					<a href="tag.html" title="tag problem">TagCloud</a>
 				</li><li>
 					<a href="binary.html" title="binary problem">Binary</a>
 				</li><li>
-					<a href="#" title="exercises Telerik" style="color:#87CEFA">Exercises</a>
+					<a href="exer.html" title="exercises Telerik">Exercises</a>
 				</li><li>
-					<a href="snake2.html" title="snake game 2">Snake v2</a>
+					<a href="snake2.html" title="snake game 2" style="color:#87CEFA">Snake v2</a>
 				</li><li>
 					<a href="image-gallery.html" title="img gallery">Image Gallery</a>
 				</li><li>
@@ -91,7 +86,25 @@
 		</nav>
 	
 	<!-- ----------------------------------- -->
-	<p id="exer"><a href="https://github.com/ndvalkov/myExercises/tree/master/Exercises">Problems/homework</a> from Telerik Academy's courses. (HTML, CSS, Slice/Dice, JavaScript pt1, JavaScript pt2, C# pt1, C# pt2)</p>
+	
+	<p style="float:right; color:black; font-size: 2rem; margin-right: 100px; margin-top: 10px">Notes: Improved version, with an array matrix serving as a positional grid. OOP, local storage.(03.14)</p>
+	<div id="containerSnake">
+		
+		
+		
+		
+		
+	</div>
+	
+	<!-- <span style="font-size: 20px; color: green">Score</span>
+	<div style="font-size: 20px; color: red; display: inline" id = "snakeScore">0</div>
+	<span style="font-size: 20px; color: green; display: inline">High Score</span>
+	<div style="font-size: 20px; color: red; display: inline" id = "snakeHighScore">0</div>
+	<textarea style="display:inline; font-size: 20px; text-align: center; padding-top: 5px" name="snakeInformation" id="snakeInfo" cols="12" rows="1"></textarea>
+	<button id = "snakeStart">Start</button> -->
+	
+	
+	<script type="text/javascript" src="scripts/test.js"></script>
 	<!-- -------------------------------------	 -->
 		
 		<section class = "newsletter">
@@ -393,3 +406,5 @@
 	<!-- <script type="text/javascript" src="scripts/test.js"></script> -->
 </body>
 </html>
+
+
