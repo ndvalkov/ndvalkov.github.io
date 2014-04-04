@@ -178,10 +178,12 @@ var controllers = (function($) {
 			)
 			
 			container.on("click", "#btn-logout", function() {
+					localStorage.clear();
 					
 					self.persister.user.logout(function(data) {
 						
 						clearInterval(msgLoop);
+						
 						container.empty();
 						
 						self.loadLoginFormUI(selector);
