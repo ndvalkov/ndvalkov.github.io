@@ -1,0 +1,540 @@
+<!DOCTYPE HTML>
+<html lang="en-US">
+<head>
+	<meta charset="UTF-8">
+	<title>Crypto chat</title>
+		
+		<!--[if lt IE 9]>
+		<script src="scripts/modernizr.js">
+		</script>
+		<link rel="stylesheet" href="styles/style_IE.css" />
+		<![endif]-->
+		
+		<![if !IE]>
+		<link rel="stylesheet" href="styles/style.css" />
+		<![endif]>
+		
+	<style type="text/css">
+		
+	
+
+
+#chatMainBox {
+	zoom: 1;
+}
+
+#login-form-holder a {
+	margin-left: 10px;
+	color: #00f;
+}
+
+#chatMainBox:after {
+	content: "";	
+	clear: both;
+	display:block;
+}
+
+#chatMainBox {
+	width: 84%;
+	height: 440px;
+	border: 2px dashed #00f;
+	margin-top: 5px;
+	margin-left: 5px;
+	background-color: #EBEBEB;
+	position: relative;
+}
+	#chatMainBox ul {
+		
+		padding-left: 20px;
+	}
+	
+		#chatMainBox ul li {
+			margin: 2px;
+			padding: 0;
+		}
+		
+			#chatMainBox ul li a{
+				margin: 0;
+				padding: 2px;
+			}
+			
+			#chatMainBox ul li a:hover{
+				text-decoration: none;
+				color: #f00;
+			}
+			
+			#chatMainBox ul li form {
+				display:none;
+				
+			}
+			
+				#chatMainBox ul li form label{
+					color: #00f;
+				}
+
+#allUsers {
+	width: 25%;
+	height: 350px;
+	border: 2px dashed #f00;
+	color: #00f;
+	margin-top: 5px;
+	margin-left: 5px;
+	float: left;
+	background-color: #F7F7F7;
+	overflow: auto;
+}
+	#allUsers li {
+		margin: 5px;
+	}
+	
+		#allUsers li a {
+			color: #000;
+			font-family: "Verdana";
+			padding: 10px;
+		}
+
+#chatUsers {
+	width: 25%;
+	height: 350px;
+	border: 2px dashed #0f0;
+	margin-top: 5px;
+	margin-right: 5px;
+	float: right;
+	background-color: #F7F7F7;
+}
+
+#messages {
+	width: 30%;
+	height: 80px;
+	border: 2px dotted #00f;
+	margin: 5px auto;
+	background-color: #F7F7F7;
+	padding: 3px;
+	overflow: auto;
+	font-size: 12px;
+	color: grey;
+}
+
+#chatDisplay {
+	width: 40%;
+	height: 250px;
+	border: 2px dotted orange;
+	border-radius: 8px;
+	margin: 5px auto;
+	text-align: bottom;
+	position: relative;
+	
+}
+
+	#innerChat {
+		position: absolute;
+		max-height: 100%;
+		width: 100%;
+		bottom: 10px;
+		overflow: auto;
+	}
+	
+	.bubble
+	{
+	position: relative;
+	width: 165px;
+	height: 50px;
+	padding: 0px;
+	background: #40E6FF;
+	-webkit-border-radius: 10px;
+	-moz-border-radius: 10px;
+	border-radius: 10px;
+	padding: 10px;
+	margin-left: 20px;
+	margin-top: 10px;
+	float: left;
+	}
+
+	.bubble:after
+	{
+	content: '';
+	position: absolute;
+	border-style: solid;
+	border-width: 8px 15px 8px 0;
+	border-color: transparent #40E6FF;
+	display: block;
+	width: 0;
+	z-index: 1;
+	left: -15px;
+	top: 14px;
+	}
+	
+	.bubble2
+	{
+	position: relative;
+	width: 165px;
+	height: 50px;
+	padding: 0px;
+	background: #FFBA46;
+	-webkit-border-radius: 10px;
+	-moz-border-radius: 10px;
+	border-radius: 10px;
+	padding: 10px;
+	margin-right: 20px;
+	margin-top: 10px;
+	float: right;
+	}
+
+	.bubble2:after
+	{
+	content: '';
+	position: absolute;
+	border-style: solid;
+	border-width: 8px 0 8px 15px;
+	border-color: transparent #FFBA46;
+	display: block;
+	width: 0;
+	z-index: 1;
+	right: -15px;
+	top: 14px;
+	}
+
+#chatMessageBox {
+	
+	width: 38%;
+	height: 60px;
+	border: 2px dotted #00f;
+	margin: 5px auto;
+	padding-top: 5px;
+	padding-left: 5px;
+	background-color: #F7F7F7;
+	
+}
+
+	#chatMessageBox textarea {
+		width: 80%;
+		height: 44px;
+		padding-top: 5px;
+		padding-left: 5px;
+		
+	}
+
+    #chatMessageBox #submit-message {
+		width: 15%;
+		margin-left: 5px;
+		font-size: 1rem;
+	}
+
+.chatUser {
+	margin: 5px;
+	color: green;
+}
+
+		
+		
+		
+	</style>
+	
+	<script src="http://ajax.googleapis.com/ajax/libs/jquery/1.9.1/jquery.min.js"></script>
+	<script src="scripts/class.js"></script>
+	<script src="http://crypto-js.googlecode.com/svn/tags/3.1.2/build/rollups/sha1.js"></script>
+	<script src="scripts/gibberish-aes.js"></script>
+	<script src="scripts/ui.js"></script>
+	<script src="scripts/http-requester.js"></script>
+	<script src="scripts/persister.js"></script>
+	<script src="scripts/controller.js"></script>
+	
+	
+</head>
+<body>
+	<header id = "header">
+		
+		<div id = "logoSite">
+		
+			<img src="images/js-cabin-logo.png" alt="no image" width = "100" height = "68" />
+			<div><h1><a href="#">JScabin</a></h1></div>
+			<p>
+				<strong>My exercises in programming with JavaScript, HTML and CSS</strong>
+			</p>
+			
+		</div>
+		
+		<div id="container">
+			
+			<ul>
+				<li>
+					<a href="#" title = "sign up">Sign-up</a>
+				</li>
+				<li>
+					<a href="#" title = "log in">Log-in</a>
+				</li>
+				<li>
+					<a href="#" title = "contact us">Contact</a>
+				</li>
+			</ul>
+			
+			<input type="search" title = "search..." placeholder = "search.."/>
+			
+		</div>
+		
+	</header>
+	
+	<div id = "siteWrapper">
+		
+		<nav id="naviMain">
+			<ul>
+				<li>
+					<a href="index.html" title="home page">Home</a>
+				</li><li>
+					<a href="#" title="grid exam" style="color:#87CEFA">Grid View</a>
+				</li><li>
+					<a href="snake.html" title="snake game">Snake</a>
+				</li><li>
+					<a href="tag.html" title="tag problem">TagCloud</a>
+				</li><li>
+					<a href="binary.html" title="binary problem">Binary</a>
+				</li><li>
+					<a href="exer.html" title="exercises Telerik">Exercises</a>
+				</li><li>
+					<a href="snake2.html" title="snake game 2">Snake v2</a>
+				</li><li>
+					<a href="image-gallery.html" title="img gallery">Image Gallery</a>
+				</li><li>
+					<a href="site-project.html" title="site">Site project</a>
+				</li>
+			</ul>
+		</nav>
+	
+	<!-- ----------------------------------- -->
+	
+	<div id="chat-container" style="color:black; margin: 10px">
+		
+	</div>
+	
+	<!-- -------------------------------------	 -->
+		
+		<section class = "newsletter">
+			<h4>Sign-Up Free to Receive Our Newsletter</h4>
+			<form action="post">
+				<input type="email" placeholder="email..." title="email address...">
+				<input type="submit" value="Submit"/>
+			</form>
+		</section>
+		
+		<section id="articleHolder">
+			
+			<article class = "article">
+				<img class="articleIcon" src="images/tasks-icon.png" width='34' height='34' alt="" />
+				<h5>Managing Your Tasks Easily</h5>
+				<p class="articlePar">
+					Lorem ipsum dolor sit amet, consectetuer adipiscing elit, sed diam nonummy nibh euismod tincidunt ut laoreet dolore magna aliquam erat volutpat. Ut wisi enim ad minim veniam, quis nostrud exerci tation ullamcorper suscipit lobortis nisl ut aliquip ex ea commodo consequat.
+				</p>
+			</article>
+			
+			<article class = "article">
+				<img class="articleIcon" src="images/business-icon.png" width='34' height='34' alt="" />
+				<h5>Simple Business Solutions</h5>
+				<p class="articlePar">
+					Lorem ipsum dolor sit amet, consectetuer adipiscing elit, sed diam nonummy nibh euismod <a href="#">tincidunt ut laoreet dolore magna aliquam</a> erat volutpat. Ut wisi enim ad minim veniam, quis nostrud exerci tation ullamcorper suscipit lobortis nisl ut aliquip ex ea commodo consequat.
+				</p>
+			</article>
+			
+			<article class = "article">
+				<img class="articleIcon" src="images/work-icon.png" width='34' height='34' alt="" />
+				<h5>Work Less Earn More</h5>
+				<p class="articlePar">
+					Lorem ipsum dolor sit amet, consectetuer adipiscing elit, sed diam nonummy nibh euismod tincidunt ut laoreet dolore magna aliquam erat volutpat. Ut wisi enim ad minim veniam, quis nostrud exerci tation ullamcorper suscipit lobortis nisl ut aliquip ex ea commodo consequat.
+				</p>
+			</article>
+			
+		</section>
+		
+		<section id = "subBoxHolder">
+			
+			<article class = "subBox">
+				<p class = "bulletNumber">1</p>
+				<h6>Magnus Opus Dolrest</h5>
+				<p class="subBoxPar">
+					Lorem ipsum dolor sit amet, consectetuer adipiscing elit, sed diam nonummy nibh euismod, consectetuer adipiscing elit. Sed diam nonummy dolor sit amet.
+				</p>
+				<button class="readMore">Read More</button>
+			</article>
+			
+			<article class = "subBox">
+				<p class = "bulletNumber">2</p>
+				<h6>Sit Ornare Turpis Orci</h5>
+				<p class="subBoxPar">
+					Lorem ipsum dolor sit amet, consectetuer adipiscing elit, sed diam nonummy nibh euismod, consectetuer adipiscing elit. Sed diam nonummy dolor sit amet.
+				</p>
+				<button class="readMore">Read More</button>
+			</article>
+			
+			<article class = "subBox">
+				<p class = "bulletNumber">3</p>
+				<h6>Ille Qui Nos Omnes Servabit</h5>
+				<p class="subBoxPar">
+					Lorem ipsum dolor sit amet, consectetuer adipiscing elit, sed diam nonummy nibh euismod, consectetuer adipiscing elit. Sed diam nonummy dolor sit amet.
+				</p>
+				<button class="readMore">Read More</button>
+			</article>
+			
+		</section>
+	
+	</div>
+	<footer id="mainFooter">
+		
+		<div class="footerList">
+			<h5>Quick Links</h5>
+			<ul>
+				<li>
+					<a href="#">Mirum est notare quam littera</a>
+				</li>
+				<li>
+					<a href="#">Duis autem vel eum iriure</a>
+				</li>
+				<li>
+					<a href="#">Nam liber tempor cum soluta</a>
+				</li>
+				<li>
+					<a href="#">Typi non habent claritatem insitam</a>
+				</li>
+				<li>
+					<a href="#">Eodem modo typi, qui nunc</a>
+				</li>
+			</ul>
+		</div>
+		
+		<div class="footerList">
+			<h5>From the Blog</h5>
+			<ul>
+				<li>
+					<a href="#">Mirum est notare quam littera</a>
+				</li>
+				<li>
+					<a href="#">Duis autem vel eum iriure</a>
+				</li>
+				<li>
+					<a href="#">Nam liber tempor cum soluta</a>
+				</li>
+				<li>
+					<a href="#">Typi non habent claritatem insitam</a>
+				</li>
+				<li>
+					<a href="#">Eodem modo typi, qui nunc</a>
+				</li>
+			</ul>
+		</div>
+		
+		<div class="footerList" id="thirdList">
+			<h5>Latest News</h5>
+			<ul>
+				<li>
+					<a href="#">Mirum est notare quam littera</a>
+				</li>
+				<li>
+					<a href="#">Duis autem vel eum iriure</a>
+				</li>
+				<li>
+					<a href="#">Nam liber tempor cum soluta</a>
+				</li>
+				<li>
+					<a href="#">Typi non habent claritatem insitam</a>
+				</li>
+				<li>
+					<a href="#">Eodem modo typi, qui nunc</a>
+				</li>
+			</ul>
+		</div>
+		
+		<div class="footerList" id="fourthList">
+			<h5>Helpful FAQ's</h5>
+			<ul>
+				<li>
+					<a href="#">Mirum est notare quam littera</a>
+				</li>
+				<li>
+					<a href="#">Duis autem vel eum iriure</a>
+				</li>
+				<li>
+					<a href="#">Nam liber tempor cum soluta</a>
+				</li>
+				<li>
+					<a href="#">Typi non habent claritatem insitam</a>
+				</li>
+				<li>
+					<a href="#">Eodem modo typi, qui nunc</a>
+				</li>
+			</ul>
+		</div>
+		
+		<div class="copyright">
+			All Rights Reserved PSD Style
+		</div> 
+		
+	</footer>
+	
+	<script type="text/javascript">
+		<!-- tests--------------- -->
+		
+		
+		var chatPersister = persisters.getPersister("http://cryptochat.apphb.com/CryptoChatService.svc/");
+		
+		
+		
+		<!-- chatPersister.user.login(data, function(data) {
+				<!-- alert(JSON.stringify(data));
+			<!-- } -->
+			<!-- , function(arguments) { -->
+				<!-- alert(JSON.stringify(arguments)); -->
+			<!-- }) --> --> -->
+		
+		
+		<!-- register test----- -->
+		
+		var userData = {
+			"username": "Ivancho1000",
+			"password": "lost"
+		}
+		
+		var sessionId = "5224lmvCJuVorKbcEKxgDixoyyoxJbpRqOWbwTtTwMIKyYzExN";
+		
+		var authCode = CryptoJS.SHA1(userData.username + userData.password).toString();
+		console.log(authCode);
+		
+		
+		
+		
+		<!-- chatPersister.user.register(userData, function(data) { -->
+				<!-- alert(JSON.stringify(data)); -->
+			<!-- }, function(arguments) { -->
+				<!-- alert(JSON.stringify(arguments)); -->
+			<!-- } -->
+		<!-- ); -->
+		
+		<!-- chatPersister.user.login(userData, function(data) { -->
+			<!-- alert(JSON.stringify(data)); -->
+		<!-- }, function(arguments) { -->
+			<!-- alert(JSON.stringify(arguments)); -->
+		<!-- }		 -->
+		<!-- ) -->
+		
+		<!-- chatPersister.user.logout(function(data) { -->
+			<!-- alert(JSON.stringify(data)); -->
+		<!-- }, function(arguments) { -->
+			<!-- alert(JSON.stringify(arguments)); -->
+		<!-- } -->
+		
+		<!-- ) -->
+		
+		var controller = controllers.get();
+		controller.loadUI("#chat-container");
+		
+		<!-- chatPersister.chat.listUsers(function(data) { -->
+			<!-- alert(JSON.stringify(data)); -->
+		<!-- }, function(arguments) { -->
+			<!-- alert(JSON.stringify(arguments)); -->
+		<!-- } -->
+		
+		<!-- ); -->
+		
+		
+	</script>
+	
+	
+</body>
+</html>
