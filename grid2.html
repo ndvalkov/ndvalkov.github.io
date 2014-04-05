@@ -2,7 +2,7 @@
 <html lang="en-US">
 <head>
 	<meta charset="UTF-8">
-	<title>JSCabin-TagCloud</title>
+	<title>JSCabin-GridView</title>
 		
 		<!--[if lt IE 9]>
 		<script src="scripts/modernizr.js">
@@ -15,44 +15,43 @@
 		<![endif]>
 		
 		<style type="text/css">
-			#tagContainer {
-				margin: 20px;
-				color: black;
-				font-size: 1.4rem;
-			}
-			
-			#tagContainer span{
-				display:inline-block;
-				margin: 15px;
-				color: black;
-				font-size: 1.7rem;
-			}
-			
-			#tagContainer a {
-				font-size: 1.4rem;
-				color: black;
-			}
-			
-			div#mainDiv {
-				border: 2px solid grey;
-				color:#000;
-				height: 380px;
-				width: 400px;
-			}
-			
-			div#mainDiv div {
-				border: none;
-				color: blue;
-			}
-			
-			input{
-				width: 60px;
-				margin-top: 10px;
-			}
-		</style>
+		.main-grid-view {
+			width: 80%;
+			height: 80%;
+			border: 2px dashed #00f;
+			font-size:16px;
+			padding: 5px;
+		}
+	
+		.grid-header-cell, .grid-row-cell {
+			display: inline-block;
+			padding: 5px;
+			width: 12%;
+			border: 1px solid grey;
+			overflow: hidden;
+			border-left: none;
+		}
 		
+			.grid-header-cell {
+				font-weight: bold;
+			}
 		
-		<script type="text/javascript"  src = "scripts/scriptTag.js"></script>
+		.grid-header-cell:nth-child(1) {
+			border-left: 1px solid grey;
+		}
+		
+		.grid-row-cell:nth-child(1) {
+			border-left: 1px solid grey;
+		}
+		
+		.nested-grid-view .main-grid-view {
+			border: none;
+		}
+		
+	</style>
+
+	
+	
 </head>
 <body>
 	<header id = "header">
@@ -96,13 +95,13 @@
 				</li><li>
 					<a href="chat.html" title="encrypted Chat">CryptoChat</a>
 				</li><li>
-					<a href="grid2.html" title="grid exam">Grid2</a>
+					<a href="#" title="grid exam" style="color:#87CEFA">Grid2</a>
 				</li><li>
-					<a href="grid.html" title="grid exam">GridView</a>
+					<a href="grid.html" title="grid exam">Grid View</a>
 				</li><li>
 					<a href="snake.html" title="snake game">Snake</a>
 				</li><li>
-					<a href="#" title="tag problem" style="color:#87CEFA">TagCloud</a>
+					<a href="tag.html" title="tag problem">TagCloud</a>
 				</li><li>
 					<a href="binary.html" title="binary problem">Binary</a>
 				</li><li>
@@ -116,29 +115,103 @@
 				</li>
 			</ul>
 		</nav>
+	
+	<!-- ----------------------------------- -->
+	
+	<span>Rebuilt from the local storage repository</span>
+	<div id="grid-container2">
 		
+	</div>
+	
+	<span>Original grid</span>
+	<div id="grid-container">
 		
-		<!-- ---------------------------------------------------- -->
-		<div id="tagContainer">
-			<div id="mainDiv">
+	</div>
+	
+	
+	
+	<section class="main-grid-view">
 		
+		<div class="grid-header">
+			<div class="grid-header-cell">
+				<span>Name</span>
 			</div>
-			
-			<a href="#" onclick = "solve()">GenerateTagCloud</a>
-			<input type="text" id = "minSize" placeholder = "min-size:"/>
-			<input type="text" id = "maxSize" placeholder = "max-size:"/>
-			
-			<p>
-				Create a tag cloud:
-				Visualize a string of tags (strings) in a given container
-				By given minFontSize and maxFontSize, generate the tags with different font-size, depending on the number of occurrences
-			</p>
-			<p>
-			["cms", "javascript", "js", "ASP.NET MVC", ".net", ".net", "css", "wordpress", "xaml", "js", "http", "web", "asp.net", "asp.net MVC", "ASP.NET MVC", "wp", "javascript", "js", "cms", "html", "javascript", "http", "http", "CMS"]
-			</p>
-			<span>Notes: JavaScript pt2, DOM. Problem 5.</span>
+			<div class="grid-header-cell">
+				<span>Location</span>
+			</div>
+			<div class="grid-header-cell">
+				<span>Total Students</span>
+			</div>
+			<div class="grid-header-cell">
+				<span>Speciality</span>
+			</div>
 		</div>
-		<!-- ------------------------------------------------------------ -->
+		
+		<div class="grid-row">
+			<div class="grid-row-cell">
+				<span>PMG</span>
+			</div>
+			<div class="grid-row-cell">
+				<span>Burgas</span>
+			</div>
+			<div class="grid-row-cell">
+				<span>400</span>
+			</div>
+			<div class="grid-row-cell">
+				<span>Mathematics</span>
+			</div>
+		</div>
+		
+		<div class="grid-row">
+			<div class="grid-row-cell">
+				<span>TUES</span>
+			</div>
+			<div class="grid-row-cell">
+				<span>Sofia</span>
+			</div>
+			<div class="grid-row-cell">
+				<span>500</span>
+			</div>
+			<div class="grid-row-cell">
+				<span>IT</span>
+			</div>
+		</div>
+		
+		<div class="grid-row">
+			<div class="grid-row-cell">
+				<span>Telerik Academy</span>
+			</div>
+			<div class="grid-row-cell">
+				<span>Sofia</span>
+			</div>
+			<div class="grid-row-cell">
+				<span>5000</span>
+			</div>
+			<div class="grid-row-cell">
+				<span>IT</span>
+			</div>
+		</div>
+		
+		<div class="grid-row">
+			<div class="grid-row-cell">
+				<span>ELS</span>
+			</div>
+			<div class="grid-row-cell">
+				<span>Burgas</span>
+			</div>
+			<div class="grid-row-cell">
+				<span>500</span>
+			</div>
+			<div class="grid-row-cell">
+				<span>English</span>
+			</div>
+		</div>
+		
+	</section>
+	
+	<span style="color: black; font-size: 1.4rem">Notes: JS2, exam variant. Repo builds fine under Firefox. Throws a "circular reference error"(JSON.stringify) with Chrome. Couldn't fix it.(04.14)</span>
+	
+	<!-- -------------------------------------	 -->
 		
 		<section class = "newsletter">
 			<h4>Sign-Up Free to Receive Our Newsletter</h4>
@@ -299,6 +372,82 @@
 		</div> 
 		
 	</footer>
+	
+	
+	<script src="http://ajax.googleapis.com/ajax/libs/jquery/1.9.1/jquery.min.js"></script>
+	<script type="text/javascript" src="scripts/proto-create-extend.js"></script>
+	<script type="text/javascript" src="scripts/gridUI.js"></script>
+	<script type="text/javascript" src="scripts/gridController.js"></script>
+	
+	<script type="text/javascript">
+		<!-- tests------------------ -->
+		
+		/** var grid = gridController.getGridView("#grid-container");
+		
+		var hd = grid.addHeader("fff, fff, fff, fffff");
+		var rw = grid.addRow("dddd, dsdsd, sdsd, sdsd");
+		var rw2 = grid.addRow("dssdg, dghfghsdsd, sdsd, sdsd");
+		grid.addRow("dddd, dsdsd, sdsd, jjjjj");
+		grid.addRow("dddd, dsdkkkksd, skkdsd, aaaaaaaa");
+		
+		grid.addRow("nnnnnnnnnn, dghfghsdsd, sdsd, sdsd");
+		grid.buildGrid();
+		
+		var ngr = rw.getNestedGrid();
+		ngr.addHeader("niki, niki, niki, niki");
+		ngr.addRow("niki, niki, niki, niki");
+		ngr.addRow("niki, niki, niki, niki");
+		rw.getNestedGrid();
+		
+		grid.buildGrid();
+		var ngr2 = rw2.getNestedGrid();
+		ngr2.addHeader("niki, niki, niki, niki");
+		ngr2.addRow("niki, niki, niki, niki");
+		ngr2.addRow("niki, niki, niki, niki");
+		
+		
+		
+		grid.buildGrid();
+		console.log(grid);
+		**/
+		
+		var grid = gridController.getGridView("#grid-container");
+		grid.addHeader("name, location, courses, speciality");
+		var row1 = grid.addRow("AEG, Burgas, 4, English");
+		var ngrid = row1.getNestedGrid();
+		ngrid.addHeader("title, start date, students");
+		ngrid.addRow("English, 09.12, 23");
+		var row2 = ngrid.addRow("mathematics, 03.01, 24");
+		ngrid2 = row2.getNestedGrid();
+		ngrid2.addHeader("firsname, lastname, grade, mark");
+		ngrid2.addRow("Pencho, Ivanov, 4, 5");
+		ngrid2.addRow("Iordan, Kostov, 11, 2");
+		
+		grid.addRow("PMG, Sofia, 2, Math");
+		grid.addRow("OU, Sofia, 5, Physics");
+		grid.buildGrid();
+		
+		
+		/**var repo = gridController.getSchoolsRepository("Schools");
+		repo.save(grid);
+		var dd = repo.load();
+		console.log(dd);**/
+		
+		var repo = gridController.getSchoolsRepository("SchoolsRepo");
+		var data = grid.getGridViewData();
+		repo.save(data);
+		
+
+		var data = repo.load("SchoolsRepo");
+		
+		var newGrid = gridController.buildGridView("#grid-container2", data)
+		console.log(newGrid);
+		
+		newGrid.buildGrid();
+		
+	</script>
+	
+	
 	
 </body>
 </html>
